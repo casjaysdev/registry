@@ -43,15 +43,20 @@ export default function Home({ searchText }) {
   }
 
   let filteredworkspaces = workspaces && workspaces.workspaces && workspaces.workspaces.length > 0 ? [...workspaces.workspaces] : [];
-  filteredworkspaces = filteredworkspaces.filter((v) => v.compatibility.some((el) => el.version === version + '.x'))
+  filteredworkspaces = filteredworkspaces.filter((v) => v.compatibility.some((el) => {
+    const elMajorMinor = parseFloat(el.version)
+    return elMajorMinor === +version
+  }))
   const lowerSearch = searchText && searchText.toLowerCase();
   if (searchText && searchText !== "") {
     filteredworkspaces = filteredworkspaces.filter((i) => {
       const category = (i.categories && i.categories.length > 0) ? i.categories.filter((i) =>
         i.toLowerCase().includes(lowerSearch)
       ) : [];
+      const desc = i.description ? i.description.toLowerCase().includes(lowerSearch) : false;
       return (
-        i.name.toLowerCase().includes(lowerSearch) ||
+        i.friendly_name.toLowerCase().includes(lowerSearch) ||
+        desc ||
         category.length > 0
       );
     });

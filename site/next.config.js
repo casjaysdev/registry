@@ -7,7 +7,7 @@ const nextConfig = {
     name: 'CasjaysDev KASM Registry',
     description: 'a 3rd party Kasm supported workspaces.',
     icon: 'https://avatars.githubusercontent.com/u/20425123?s=200&v=4',
-    listUrl: 'http://registry.casjaysdev.pro/',
+    listUrl: 'https://registry.casjaysdev.pro/',
     contactUrl: 'https://github.com/casjaysdev/registry/issues',
   },
   reactStrictMode: true,

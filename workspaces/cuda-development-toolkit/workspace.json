@@ -1,0 +1,30 @@
+{
+  "description": "The CUDA Toolkit includes GPU-accelerated libraries, a compiler, development tools and the CUDA runtime on Ubuntu Focal.",
+  "docker_registry": "https://index.docker.io/v1/",
+  "image_src": "cuda-development-toolkit.png",
+  "categories": [
+    "Desktop",
+    "Development"
+  ],
+  "friendly_name": "CUDA Development Toolkit",
+  "architecture": [
+    "amd64"
+  ],
+  "compatibility": [
+    {
+      "version": "1.16.x",
+      "image": "kasmweb/core-cuda-focal:1.16.1-rolling-daily",
+      "uncompressed_size_mb": 11088,
+      "available_tags": [
+        "develop",
+        "1.16.0",
+        "1.16.0-rolling-weekly",
+        "1.16.0-rolling-daily",
+        "1.16.1",
+        "1.16.1-rolling-weekly",
+        "1.16.1-rolling-daily",
+        "1.17.0-rolling-weekly"
+      ]
+    }
+  ]
+}

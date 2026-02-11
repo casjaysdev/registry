@@ -77,7 +77,10 @@ export default function New({ workspace }) {
       const workspaceDetails = allworkspaces.workspaces.find(el => el.friendly_name === atob(workspace[0]))
       delete workspaceDetails['sha']
       description.current.value = workspaceDetails.description
-      name.current.value = workspaceDetails.name
+      const latestCompat = workspaceDetails.compatibility && workspaceDetails.compatibility.length > 0
+        ? workspaceDetails.compatibility[workspaceDetails.compatibility.length - 1]
+        : null
+      name.current.value = latestCompat ? latestCompat.image : ''
       friendly_name.current.value = workspaceDetails.friendly_name
       if (workspaceDetails.categories) {
         let catMap = []

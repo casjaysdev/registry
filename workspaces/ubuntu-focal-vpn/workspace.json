@@ -1,0 +1,52 @@
+{
+  "description": "Ubuntu is a Linux distribution based on Debian. This container includes Ubuntu Focal with tools for using popular VPN services.",
+  "docker_registry": "https://index.docker.io/v1/",
+  "image_src": "ubuntu-focal-vpn.png",
+  "run_config": {
+    "environment": {
+      "TAILSCALE_KEY": "",
+      "SHOW_VPN_STATUS": "1",
+      "SHOW_IP_STATUS": "1"
+    },
+    "sysctls": {
+      "net.ipv4.conf.all.src_valid_mark": 1
+    },
+    "dns": [
+      "8.8.8.8",
+      "8.8.4.4"
+    ]
+  },
+  "exec_config": {
+    "first_launch": {
+      "user": "root",
+      "privileged": true,
+      "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'"
+    }
+  },
+  "categories": [
+    "Desktop",
+    "Productivity",
+    "Development"
+  ],
+  "friendly_name": "Ubuntu Focal VPN",
+  "architecture": [
+    "amd64",
+    "arm64"
+  ],
+  "compatibility": [
+    {
+      "version": "1.16.x",
+      "image": "kasmweb/ubuntu-focal-desktop-vpn:1.16.1-rolling-daily",
+      "uncompressed_size_mb": 4535,
+      "available_tags": [
+        "develop",
+        "1.16.0",
+        "1.16.0-rolling-weekly",
+        "1.16.0-rolling-daily",
+        "1.16.1",
+        "1.16.1-rolling-weekly",
+        "1.16.1-rolling-daily"
+      ]
+    }
+  ]
+}
